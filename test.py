@@ -36,6 +36,12 @@ def stage_five(st: str):  # final version
         print(int(st[2 * i + 1]) * st[2 * i], end='')
 
 
+def stage_six(st: str):  # regexp bonus :P
+    import re
+    for st_temp in re.findall(r"\D+\d+", st):
+        print(int(st_temp[1]) * st_temp[0], end='')
+
+
 stage_one(s)
 print()
 stage_two(s)
@@ -46,3 +52,4 @@ stage_four(s)
 print()
 stage_five(s)
 print()
+stage_six(s)
