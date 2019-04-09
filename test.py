@@ -19,7 +19,15 @@ def stage_two(st: str):  # lets think about optimisation
             print(st_temp[0], end='')
 
 
+def stage_three(st: str):  # more optimisation
+    for i in range(int(len(st) / 2)):
+        for j in range(int(st[2 * i + 1])):
+            print(st[2 * i], end='')
+
+
 stage_one(s)
 print()
 stage_two(s)
+print()
+stage_three(s)
 print()
