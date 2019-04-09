@@ -31,6 +31,11 @@ def stage_four(st: str):  # let it lok nice too
             print(int(st[i + 1]) * st[i], end='')
 
 
+def stage_five(st: str):  # final version
+    for i in range(int(len(st) / 2)):
+        print(int(st[2 * i + 1]) * st[2 * i], end='')
+
+
 stage_one(s)
 print()
 stage_two(s)
@@ -38,4 +43,6 @@ print()
 stage_three(s)
 print()
 stage_four(s)
+print()
+stage_five(s)
 print()
