@@ -25,9 +25,17 @@ def stage_three(st: str):  # more optimisation
             print(st[2 * i], end='')
 
 
+def stage_four(st: str):  # let it lok nice too
+    for i in range(len(st)):
+        if i % 2 == 0:
+            print(int(st[i + 1]) * st[i], end='')
+
+
 stage_one(s)
 print()
 stage_two(s)
 print()
 stage_three(s)
+print()
+stage_four(s)
 print()
