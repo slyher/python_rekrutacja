@@ -5,7 +5,7 @@ convert: a4g2h6 to: aaaagghhhhhh
 import unittest
 
 
-class StringDecoder:
+class StringEncoder:
     def stage_one(self, st: str):  # brute force
         return_string = ''
         for i in range(len(st)):
@@ -52,32 +52,32 @@ class StringDecoder:
 
 class SimpleTestCase(unittest.TestCase):
     def setUp(self):
-        self.string_decoder = StringDecoder()
+        self.string_encoder = StringEncoder()
 
-    def testForStageOneDecoder(self):
+    def testForStageOneEncoder(self):
         """Test case A. note that all test method names must begin with 'test.'"""
         s = "a4g2h6"
-        assert self.string_decoder.stage_one(s) == "aaaagghhhhhh"
+        assert self.string_encoder.stage_one(s) == "aaaagghhhhhh"
 
-    def testForStageTwoDecoder(self):
+    def testForStageTwoEncoder(self):
         s = "a4g2h6"
-        assert self.string_decoder.stage_two(s) == "aaaagghhhhhh"
+        assert self.string_encoder.stage_two(s) == "aaaagghhhhhh"
 
-    def testForStageThreeDecoder(self):
+    def testForStageThreeEncoder(self):
         s = "a4g2h6"
-        assert self.string_decoder.stage_three(s) == "aaaagghhhhhh"
+        assert self.string_encoder.stage_three(s) == "aaaagghhhhhh"
 
-    def testForStageFourDecoder(self):
+    def testForStageFourEncoder(self):
         s = "a4g2h6"
-        assert self.string_decoder.stage_four(s) == "aaaagghhhhhh"
+        assert self.string_encoder.stage_four(s) == "aaaagghhhhhh"
 
-    def testForStageFiveDecoder(self):
+    def testForStageFiveEncoder(self):
         s = "a4g2h6"
-        assert self.string_decoder.stage_five(s) == "aaaagghhhhhh"
+        assert self.string_encoder.stage_five(s) == "aaaagghhhhhh"
 
-    def testForStageSixDecoder(self):
+    def testForStageSixEncoder(self):
         s = "a4g2h6"
-        assert self.string_decoder.stage_six(s) == "aaaagghhhhhh"
+        assert self.string_encoder.stage_six(s) == "aaaagghhhhhh"
 
 
 if __name__ == "__main__":
