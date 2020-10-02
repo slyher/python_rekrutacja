@@ -48,6 +48,9 @@ class StringEncoder:
         for st_temp in re.findall(r"\D+\d+", st):
             return_string += str(int(st_temp[1]) * st_temp[0])
         return return_string
+    
+    def stage_functional(self, str:str):
+        return ''.join(map(lambda x: x[1] * int(str[x[0] + 1]) if x[0] % 2 == 0 else "", enumerate(list(str))))
 
 
 class SimpleTestCase(unittest.TestCase):
@@ -79,6 +82,10 @@ class SimpleTestCase(unittest.TestCase):
         s = "a4g2h6"
         assert self.string_encoder.stage_six(s) == "aaaagghhhhhh"
 
+    def testForStageFunctionalEncoder(self):
+        """Test case A. note that all test method names must begin with 'test.'"""
+        s = "a4g2h6"
+        assert self.string_encoder.stage_functional(s) == "aaaagghhhhhh"
 
 if __name__ == "__main__":
     unittest.main()  # run all tests
