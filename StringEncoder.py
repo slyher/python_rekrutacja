@@ -6,7 +6,7 @@ import unittest
 
 
 class StringEncoder:
-    def stage_one(self, st: str):  # brute force
+    def stage_one(self, st: str) -> str:  # brute force
         return_string = ''
         for i in range(len(st)):
             if i % 2 == 1:
@@ -14,7 +14,7 @@ class StringEncoder:
                     return_string += st[i - 1]
         return return_string
 
-    def stage_two(self, st: str):  # lets think about optimisation
+    def stage_two(self, st: str) -> str:  # lets think about optimisation
         return_string = ''
         for i in range(int(len(st) / 2)):
             st_temp = st[2 * i: 2 * (i + 1)]
@@ -22,34 +22,34 @@ class StringEncoder:
                 return_string += st_temp[0]
         return return_string
 
-    def stage_three(self, st: str):  # more optimisation
+    def stage_three(self, st: str) -> str:  # more optimisation
         return_string = ''
         for i in range(int(len(st) / 2)):
             for j in range(int(st[2 * i + 1])):
                 return_string += st[2 * i]
         return return_string
 
-    def stage_four(self, st: str):  # let it lok nice too
+    def stage_four(self, st: str) -> str:  # let it lok nice too
         return_string = ''
         for i in range(len(st)):
             if i % 2 == 0:
                 return_string += str(int(st[i + 1]) * st[i])
         return return_string
 
-    def stage_five(self, st: str):  # final version
+    def stage_five(self, st: str) -> str:  # final version
         return_string = ''
         for i in range(int(len(st) / 2)):
             return_string += str(int(st[2 * i + 1]) * st[2 * i])
         return return_string
 
-    def stage_six(self, st: str):  # regexp bonus :P
+    def stage_six(self, st: str) -> str:  # regexp bonus :P
         import re
         return_string = ''
         for st_temp in re.findall(r"\D+\d+", st):
             return_string += str(int(st_temp[1]) * st_temp[0])
         return return_string
     
-    def stage_functional(self, str:str):
+    def stage_functional(self, str:str) -> str:
         return ''.join(map(lambda x: x[1] * int(str[x[0] + 1]) if x[0] % 2 == 0 else "", enumerate(list(str))))
 
 
