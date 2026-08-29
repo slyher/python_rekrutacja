@@ -5,7 +5,7 @@ import re
 This is the "search" module.
 
 The search module supplies  function, search00x(word, sentence) whose responsibility is 
-to return an list of indexes of every accurence on an substring in a string.  
+to return an list of indexes of every occurrence on an substring in a string.  
 For example,
 
 >>> search001('aa', 'makkaanada')
@@ -111,7 +111,7 @@ def search005(word: str, sentence: str):
 
 def search006(word: str, sentence: str):
     """
-    Return a generator of indexs of a substring found in string
+    Return a generator of indexes of a substring found in string
 
     >>> list(search006('aa', 'maakkaanaakka'))
     [1, 5, 8]
