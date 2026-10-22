@@ -58,6 +58,9 @@ def search003(word: str, sentence: str) -> list:
 
     >>> search003('ak', 'maakkaanaakka')
     [2, 9]
+    
+    >>> list(search003('aa', 'aabaa'))
+    [0, 3]
     """
     return [match.start() for match in re.finditer(word, sentence)]
 
@@ -81,11 +84,14 @@ def search004(word: str, sentence: str):
 
     >>> search004('ak', 'maakkaanaakka')
     [2, 9]
+    
+    >>> list(search004('aa', 'aabaa'))
+    [0, 3]
     """
     response = []
     word_len = len(word)
-    for i in range(len(sentence) - word_len):
-        if (word == sentence[i:i+word_len]):
+    for i in range(len(sentence) - word_len+1):
+        if (word == sentence[i:i + word_len]):
             response.append(i)
     return response
 
@@ -102,12 +108,14 @@ def search005(word: str, sentence: str):
 
     >>> list(search005('ak', 'maakkaanaakka'))
     [2, 9]
+    
+    >>> list(search005('aa', 'aabaa'))
+    [0, 3]
     """
     word_len = len(word)
-    for i in range(len(sentence) - word_len):
+    for i in range(len(sentence) - word_len + 1):
         if (word == sentence[i:i + word_len]):
             yield i
-
 
 def search006(word: str, sentence: str):
     """
@@ -130,17 +138,51 @@ def search006(word: str, sentence: str):
 
     >>> list(search006('ana', 'maannakkaanaakka'))
     [9]
-
+    
+    >>> list(search006('aa', 'aabaa'))
+    [0, 3]
     """
 
     word_len = len(word)
-    for i in range(len(sentence) - word_len):
+    for i in range(len(sentence) - word_len + 1):
         for j in range(word_len):
             if (sentence[i+j] == word[j]):
                 if (j == word_len-1):
                     yield i
             else:
                 break
+
+
+def search007(word: str, sentence: str):
+    """
+    Return a generator of indexs of a substring found in string
+
+    >>> list(search007('aa', 'maakkaanaakka'))
+    [1, 5, 8]
+
+    >>> list(search007('kk', 'maakkaanaakka'))
+    [3, 10]
+
+    >>> list(search007('ak', 'maakkaanaakka'))
+    [2, 9]
+
+    >>> list(search007('au', 'maakkaanaakka'))
+    []
+
+    >>> list(search007('ana', 'maakkaanaakka'))
+    [6]
+
+    >>> list(search007('ana', 'maannakkaanaakka'))
+    [9]
+
+    >>> list(search007('aa', 'aabaa'))
+    [0, 3]
+    """
+    return (
+        i
+        for i in range(len(sentence) - len(word) + 1)
+        if sentence.startswith(word, i)
+    )
 
 
 if __name__ == "__main__":
